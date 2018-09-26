@@ -28,6 +28,7 @@ Suite Precondition
   Авторизуватися
   Run Keyword If  "${start_from}" == "webclient"  Run Keywords
   ...  Click Element  //span[contains(text(), 'Вибір')]
+  ...  AND  Wait Until Page Does Not Contain Element  //span[contains(text(), 'Вибір')]  60
   ...  AND  Дочекатись закінчення загрузки сторінки(webclient)
 
 
