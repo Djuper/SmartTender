@@ -83,11 +83,10 @@ Test Postcondition
 Натиснути Користувачі та групи webclient
   Wait Until Element Is Visible  //div[@data-key and contains(., "Користувачі та групи")]
   Sleep  2
-  Double Click Element  //div[@data-key and contains(., "Користувачі та групи")]//label
+  Double Click Element  //div[@data-key and contains(., "Користувачі та групи")]//img
   Дочекатись закінчення загрузки сторінки(webclient)
   Sleep  3
-  ${status}  Run Keyword And Return Status  Wait Until Page Does Not Contain Element  //div[@data-key and contains(., "Користувачі та групи")]  30
-  Run Keyword If  "${status}" == "False"  Натиснути Користувачі та групи webclient
+  Wait Until Page Does Not Contain Element  //div[@data-key and contains(., "Користувачі та групи")]  10
 
 
 Натиснути Користувачі та групи cpmb
