@@ -85,7 +85,9 @@ Test Postcondition
 Натиснути Користувачі та групи webclient
   Wait Until Element Is Visible  //div[@data-key and contains(., "Користувачі та групи")]
   Sleep  2
-  Double Click Element  //div[@data-key and contains(., "Користувачі та групи")]//img
+  Click Element  //div[@data-key and contains(., "Користувачі та групи")]/..
+  Sleep  2
+  Double Click Element  //div[@data-key and contains(., "Користувачі та групи")]/..
   Дочекатись закінчення загрузки сторінки(webclient)
   Sleep  3
   Wait Until Page Does Not Contain Element  //div[@data-key and contains(., "Користувачі та групи")]  10
