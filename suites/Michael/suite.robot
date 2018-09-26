@@ -22,6 +22,8 @@ ${cpmb_start_page}           http://192.168.1.205/wsmbdemo_all/client
 Suite Precondition
   ${start_page}  Отримати стартовий URL
   Start
+  Set Window Size  945  1079
+  Set Window Position  3  28
   Дочекатись закінчення загрузки сторінки(webclient)
   Авторизуватися
   Run Keyword If  "${start_from}" == "webclient"  Run Keywords
