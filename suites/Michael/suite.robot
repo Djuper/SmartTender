@@ -49,12 +49,14 @@ Test Postcondition
 
 
 Вибрати Ім'я користувача webclient
+  Wait Until Element Contains  //*[@data-name="Login"]//td[@id]  30
   Click Element  //*[@data-name="Login"]//td[@id]
   Sleep  1
   Click Element  //*[contains(text(), "Главный бухгалтер")]
 
 
 Вибрати Ім'я користувача cpmb
+  Wait Until Element Contains  //*[@data-name="Login"]//td[@id]  30
   Click Element  //*[@data-name="Login"]//td[@id]
   Sleep  1
   Click Element  //*[contains(text(), "Головний бухгалтер")]
