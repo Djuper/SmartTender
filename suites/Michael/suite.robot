@@ -28,7 +28,7 @@ Suite Precondition
   Авторизуватися
   Run Keyword If  "${start_from}" == "webclient"  Run Keywords
   ...  Click Element  //span[contains(text(), 'Вибір')]
-  ...  AND  Wait Until Page Does Not Contain Element  //span[contains(text(), 'Вибір')]  60
+  ...  AND  Wait Until Element Is Not Visible  //span[contains(text(), 'Вибір')]  180
   ...  AND  Дочекатись закінчення загрузки сторінки(webclient)
 
 
@@ -57,7 +57,7 @@ Test Postcondition
 
 
 Вибрати Ім'я користувача cpmb
-  Wait Until Page Contains Elements  //*[@data-name="Login"]//td[@id]  30
+  Wait Until Page Contains Element  //*[@data-name="Login"]//td[@id]  30
   Click Element  //*[@data-name="Login"]//td[@id]
   Sleep  1
   Click Element  //*[contains(text(), "Головний бухгалтер")]
@@ -86,12 +86,19 @@ Test Postcondition
 Натиснути Користувачі та групи webclient
   Wait Until Element Is Visible  //div[@data-key and contains(., "Користувачі та групи")]
   Sleep  2
-  Click Element  //div[@data-key and contains(., "Користувачі та групи")]/..
-  Sleep  2
-  Double Click Element  //div[@data-key and contains(., "Користувачі та групи")]/..
+  Open Context Menu  xpath=//div[@data-key and contains(., "Користувачі та групи")]
+  Sleep  1
+  #${n}  Get Element Count  //*[contains(text(), 'Відкрити в новій вкладці')]
+  #:FOR  ${i}  IN RANGE  ${n}
+  #\  Exit For Loop If  Click Element  (//*[contains(text(), 'Відкрити в новій вкладці')])[${i}]
+  Click Element  (//*[contains(text(), 'Відкрити в новій вкладці')])[3]
+  ${location}  Get Location
+  ${windows}  Get Window Names
+  ${a}  Get Window Handles
+  Close Window
+  Select Window  ${a[1]}
   Дочекатись закінчення загрузки сторінки(webclient)
   Sleep  3
-  Wait Until Page Does Not Contain Element  //div[@data-key and contains(., "Користувачі та групи")]  10
 
 
 Натиснути Користувачі та групи cpmb
