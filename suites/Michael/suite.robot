@@ -99,6 +99,7 @@ Test Postcondition
   Select Window  ${a[1]}
   Дочекатись закінчення загрузки сторінки(webclient)
   Sleep  3
+  Wait Until Page Contains Element  //*[@data-placeid="TBN"]//td[text()="Користувачi"]  180
 
 
 Натиснути Користувачі та групи cpmb
