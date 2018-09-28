@@ -27,7 +27,8 @@ Suite Precondition
   Дочекатись закінчення загрузки сторінки(webclient)
   Авторизуватися
   Run Keyword If  "${start_from}" == "webclient"  Run Keywords
-  ...  Click Element  //span[contains(text(), 'Вибір')]
+  ...  Wait Until Element Is Visible  //span[contains(text(), 'Вибір')]  60
+  ...  AND  Click Element  //span[contains(text(), 'Вибір')]
   ...  AND  Wait Until Element Is Not Visible  //span[contains(text(), 'Вибір')]  180
   ...  AND  Дочекатись закінчення загрузки сторінки(webclient)
 
@@ -73,7 +74,7 @@ Test Postcondition
 
 
 Натиснути адміністрування
-  Wait Until Element Is Visible  //*[@data-key="AD.ADM"]
+  Wait Until Element Is Visible  //*[@data-key="AD.ADM"]  60
   Sleep  2
   Click Element  //*[@data-key="AD.ADM"]
   Дочекатись закінчення загрузки сторінки(webclient)
